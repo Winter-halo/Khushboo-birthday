@@ -25,7 +25,7 @@
             position: relative;
         }
 
-        /* Subtle floating particles */
+      
         body::before {
             content: '';
             position: fixed;
@@ -68,7 +68,7 @@
             }
         }
 
-        /* Landing Page */
+       
         .landing {
             text-align: center;
         }
@@ -139,7 +139,7 @@
             box-shadow: 0 20px 40px rgba(255, 107, 107, 0.6);
         }
 
-        /* Game Container */
+     
         .game-container {
             background: rgba(255,255,255,0.1);
             backdrop-filter: blur(20px);
@@ -157,7 +157,6 @@
             text-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
 
-        /* Memory Game */
         .memory-game {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -235,7 +234,7 @@
             display: inline-block;
         }
 
-        /* Cake Game */
+    
         .cake-container {
             position: relative;
             width: 100%;
@@ -284,7 +283,7 @@
             transition: all 0.5s ease;
         }
 
-        /* Bottom layer */
+        
         .cake-layer-1 {
             bottom: 50px;
             width: clamp(160px, 40vw, 200px);
@@ -308,7 +307,7 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
-        /* Middle layer */
+        
         .cake-layer-2 {
             bottom: clamp(96px, 24vw, 120px);
             width: clamp(128px, 32vw, 160px);
@@ -332,7 +331,6 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
-        /* Top layer */
         .cake-layer-3 {
             bottom: clamp(144px, 36vw, 180px);
             width: clamp(96px, 24vw, 120px);
@@ -356,7 +354,7 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
-        /* Candles */
+       
         .candles {
             position: absolute;
             top: -25px;
@@ -395,7 +393,7 @@
             100% { transform: translateX(-50%) scale(1.1); opacity: 1; }
         }
 
-        /* Sprinkles */
+        
         .sprinkles {
             position: absolute;
             width: 100%;
@@ -411,7 +409,7 @@
             border-radius: 2px;
         }
 
-        /* Falling cake parts */
+        
         .falling-part {
             position: absolute;
             left: 50%;
@@ -489,7 +487,7 @@
             font-weight: 400;
         }
 
-        /* Read Note Button */
+        
         .read-note-button {
             background: linear-gradient(135deg, #ff6b6b 0%, #feca57 50%, #ff9ff3 100%);
             border: none;
@@ -528,7 +526,7 @@
             box-shadow: 0 20px 40px rgba(255, 107, 107, 0.6);
         }
 
-        /* Wish Page */
+        
         .wish-container {
             background: rgba(255,255,255,0.1);
             backdrop-filter: blur(25px);
@@ -651,7 +649,7 @@
             box-shadow: 0 0 15px rgba(255, 107, 107, 0.3);
         }
 
-        /* Mobile optimizations */
+        
         @media (max-width: 768px) {
             .page {
                 padding: 15px;
@@ -674,7 +672,7 @@
             }
         }
 
-        /* Touch device optimizations */
+       
         @media (hover: none) and (pointer: coarse) {
             .memory-card:active {
                 transform: translateY(-3px) scale(1.03);
@@ -688,7 +686,7 @@
     </style>
 </head>
 <body>
-    <!-- Landing Page -->
+    
     <div class="page active" id="landing">
         <div class="landing">
             <h1>Happy Birthday Khushboo! 🎂</h1>
@@ -699,7 +697,7 @@
         </div>
     </div>
 
-    <!-- Memory Game -->
+  
     <div class="page" id="memory-game">
         <div class="game-container">
             <h2 class="game-title">🧠 Memory Challenge</h2>
@@ -711,7 +709,7 @@
         </div>
     </div>
 
-    <!-- Cake Building Game -->
+   
     <div class="page" id="cake-game">
         <div class="game-container">
             <h2 class="game-title">🎂 Building Khushboo's Cake!</h2>
@@ -727,7 +725,7 @@
         </div>
     </div>
 
-    <!-- Cake Complete Page -->
+   
     <div class="page" id="cake-complete">
         <div class="game-container">
             <h2 class="game-title">🎂 Your Cake is Ready!</h2>
@@ -767,7 +765,7 @@
     </div>
 
     <script>
-        // Game state
+        
         let currentPage = 'landing';
         let memoryCards = [];
         let flippedCards = [];
@@ -775,7 +773,7 @@
         let cakeLayers = 0;
         let gameInterval;
 
-        // Emoji sets for memory game
+       
         const emojis = ['🎂', '🎈', '🎁', '🎉', '🍰', '🎊', '🎀', '🌟'];
         const cardEmojis = [...emojis, ...emojis];
 
@@ -844,7 +842,6 @@
                 matches++;
                 document.getElementById('matches').textContent = matches;
                 
-                // Update progress bar
                 const progress = (matches / 8) * 100;
                 document.getElementById('memory-progress').style.width = progress + '%';
                 
@@ -889,17 +886,17 @@
             
             const container = document.getElementById('cake-container');
             
-            // Clear any existing layers
+           
             container.querySelectorAll('.cake-layer, .falling-part').forEach(el => {
                 if (!el.classList.contains('cake-plate') && !el.classList.contains('sprinkles')) {
                     el.remove();
                 }
             });
             
-            // Create sprinkles
+           
             createSprinkles(container);
             
-            // Start dropping cake parts automatically
+            
             gameInterval = setInterval(dropCakePart, 2500);
         }
 
@@ -910,7 +907,7 @@
             const part = document.createElement('div');
             part.className = `falling-part falling-part-${cakeLayers + 1}`;
             
-            // Set target position based on layer
+           
             const targetPositions = [
                 { bottom: '50px' },
                 { bottom: '120px' },
@@ -922,11 +919,11 @@
             
             container.appendChild(part);
             
-            // Animate to target position
+            
             setTimeout(() => {
                 part.style.top = targetPos.bottom;
                 
-                // After animation, convert to permanent layer
+                
                 setTimeout(() => {
                     part.remove();
                     addCakeLayer();
@@ -938,7 +935,7 @@
             cakeLayers++;
             document.getElementById('cake-layers').textContent = cakeLayers;
             
-            // Update progress bar
+           
             const progress = (cakeLayers / 3) * 100;
             document.getElementById('cake-progress').style.width = progress + '%';
             
@@ -951,7 +948,7 @@
             if (cakeLayers >= 3) {
                 clearInterval(gameInterval);
                 
-                // Add candles to the top layer
+               
                 setTimeout(() => {
                     const topLayer = container.querySelector('.cake-layer-3');
                     if (topLayer) {
@@ -981,7 +978,7 @@
         }
 
         function createCelebration() {
-            // Create confetti
+            
             const colors = ['#ff6b6b', '#4ecdc4', '#feca57', '#ff9ff3', '#a8e6cf', '#48dbfb'];
             
             for (let i = 0; i < 50; i++) {
@@ -998,7 +995,7 @@
                 }, i * 100);
             }
 
-            // Create floating hearts
+            
             setInterval(() => {
                 if (currentPage === 'wish-page') {
                     const heart = document.createElement('div');
@@ -1013,7 +1010,7 @@
             }, 1500);
         }
 
-        // Add subtle sparkle effects
+       
         setInterval(() => {
             const sparkle = document.createElement('div');
             sparkle.innerHTML = '✨';
@@ -1031,7 +1028,7 @@
             setTimeout(() => sparkle.remove(), 4000);
         }, 3000);
 
-        // Mobile touch optimization
+        
         document.addEventListener('touchstart', function() {}, { passive: true });
     </script>
 </body>
